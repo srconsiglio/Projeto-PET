@@ -1,4 +1,17 @@
-const data = [
+
+
+type PetType =  'dog' | 'cat' | 'fish'
+
+type Pet ={
+    type:  PetType
+    image: string,
+    name: string,
+    color: string,
+    sex: 'Masculino' | 'Feminino'
+}
+
+
+const data: Pet[] = [
 
     {
         type: 'dog',
@@ -56,6 +69,108 @@ const data = [
         color: 'Amarelo',
         sex: 'Masculino'
     },
+    {
+        type: 'cat',
+        image: 'mainecoon.jpg',
+        name: 'Maine Coon',
+        color: 'Preto e Branco',
+        sex: 'Masculino'
+    },
+    {
+        type: 'cat',
+        image: 'bengal.jpg',
+        name: 'Bengal',
+        color: 'Branco, Preto e Amarelo',
+        sex: 'Feminino'
+    },
+    {
+        type: 'cat',
+        image: 'siames.jpg',
+        name: 'Siamês',
+        color: 'Amarelo e Preto',
+        sex: 'Masculino'
+    },
+    {
+        type: 'cat',
+        image: 'sphynx.jpg',
+        name: 'Sphynx',
+        color: 'Branco',
+        sex: 'Masculino'
+    },
+    {
+        type: 'fish',
+        image: 'neon.jpg',
+        name: 'Tetra Neon',
+        color: 'Vermelho e Azul',
+        sex: 'Masculino'
+    },
+    {
+        type: 'fish',
+        image: 'matogrosso.jpg',
+        name: 'Mato Grosso',
+        color: 'Laranja',
+        sex: 'Masculino'
+    },
+    {
+        type: 'fish',
+        image: 'limpavidro.jpg',
+        name: 'Limpa Vidro',
+        color: 'Verde e Branco',
+        sex: 'Masculino'
+    },
+    {
+        type: 'fish',
+        image: 'tanictis.jpg',
+        name: 'Tanictis',
+        color: 'Vermelho',
+        sex: 'Masculino'
+    },
+    {
+        type: 'fish',
+        image: 'acara.jpg',
+        name: 'Acará Bandeira',
+        color: 'Preto',
+        sex: 'Masculino'
+    },
+
+
     
 
 ]
+
+
+export const Pet  = {
+
+    //*1 = retornar todos os Pets
+    getAll: () =>{
+        return data
+    },
+
+    //2* filtrar os pets 
+    getFromType: (type: PetType): Pet[] =>{
+        return data.filter(item =>  {
+
+            if(item.type == type){
+                return true
+            }else{
+                return false     
+            } 
+
+        })
+    },
+    //3* filtrar por nome 
+        getFromName: (name: string): Pet[] =>{
+        return data.filter(item =>{
+            if(item.name.toLowerCase().indexOf(name.toLocaleLowerCase()) > -1){
+                return true
+            }else{
+                return false
+            }
+
+
+
+        })
+    }
+
+
+}
